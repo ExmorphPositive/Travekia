@@ -83,6 +83,10 @@ main p {
     margin-left: auto;
 }
 
+.right li {
+    margin-bottom: 10px;
+}
+
 /*Toc Section*/
 #toc-section {
     height: max-content;
