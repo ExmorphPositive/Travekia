@@ -1,8 +1,8 @@
 let isDarkMode = false;  // track state
 
 function toggleH2AndPColor() {
-    const style = document.createElement('style');
-    style.textContent = `
+  const style = document.createElement('style');
+  style.textContent = `
       main {
         background-color: ${isDarkMode ? '#ffffffff' : '#000000ff'} !important;
         transition: background-color 0.5s;
@@ -45,15 +45,15 @@ function toggleH2AndPColor() {
 
       .list-main-heading li {
         background-image: url('${isDarkMode
-            ? 'https://raw.githubusercontent.com/ExmorphPositive/CenterAssets-Pu/refs/heads/main/Images/BulletPoints/loading.png'
-            : 'https://raw.githubusercontent.com/ExmorphPositive/CenterAssets-Pu/refs/heads/main/Images/BulletPoints/loading-inv.png'}') !important;
+      ? 'https://raw.githubusercontent.com/ExmorphPositive/CenterAssets-Pu/refs/heads/main/Images/BulletPoints/loading.png'
+      : 'https://raw.githubusercontent.com/ExmorphPositive/CenterAssets-Pu/refs/heads/main/Images/BulletPoints/loading-inv.png'}') !important;
       }
 
       #key-takeaways-section li {
         color: ${isDarkMode ? '#2e2e2e' : '#747474'} !important;
         background-image: url('${isDarkMode
-            ? 'https://raw.githubusercontent.com/ExmorphPositive/CenterAssets-Pu/refs/heads/main/Images/BulletPoints/pointing-finger.png'
-            : 'https://raw.githubusercontent.com/ExmorphPositive/CenterAssets-Pu/refs/heads/main/Images/BulletPoints/pointing-finger-inv.png'}') !important;
+      ? 'https://raw.githubusercontent.com/ExmorphPositive/CenterAssets-Pu/refs/heads/main/Images/BulletPoints/pointing-finger.png'
+      : 'https://raw.githubusercontent.com/ExmorphPositive/CenterAssets-Pu/refs/heads/main/Images/BulletPoints/pointing-finger-inv.png'}') !important;
         background-repeat: no-repeat !important;
         background-position: left top !important;
         background-size: 20px !important;
@@ -70,7 +70,7 @@ function toggleH2AndPColor() {
 
       .Extra001 {
         background-color: ${isDarkMode ? '#f0f0f0' : '#181818'} !important;
-        color: ${isDarkMode ? '#2e2e2e' : '#6d8bf5'} !important;
+        color: ${isDarkMode ? '#2e2e2e' : '#7b8ed1'} !important;
         transition: color 0.5s, background-color 0.5s;
       }
 
@@ -94,36 +94,41 @@ function toggleH2AndPColor() {
         color: ${isDarkMode ? '#2e2e2e' : '#747474'} !important;
         transition: color 0.5s;
       }
+
+      .right ul {
+        color: ${isDarkMode ? '#2e2e2e' : '#747474'} !important;
+        transition: color 0.5s;
+      }
     `;
 
-    // Remove old injected style if any
-    const existing = document.getElementById('toggleColorStyle');
-    if (existing) {
-        existing.remove();
-    }
+  // Remove old injected style if any
+  const existing = document.getElementById('toggleColorStyle');
+  if (existing) {
+    existing.remove();
+  }
 
-    // Add new style
-    style.id = 'toggleColorStyle';
-    document.head.appendChild(style);
+  // Add new style
+  style.id = 'toggleColorStyle';
+  document.head.appendChild(style);
 
-    // Flip state
-    isDarkMode = !isDarkMode;
+  // Flip state
+  isDarkMode = !isDarkMode;
 
-    // Update button text and class
-    const button = document.getElementById('darkModeButton');
-    const text = button.querySelector('p');
-    if (isDarkMode) {
-        text.textContent = 'Light Mode';
-        button.classList.add('swapped');
-    } else {
-        text.textContent = 'Dark Mode';
-        button.classList.remove('swapped');
-    }
+  // Update button text and class
+  const button = document.getElementById('darkModeButton');
+  const text = button.querySelector('p');
+  if (isDarkMode) {
+    text.textContent = 'Light Mode';
+    button.classList.add('swapped');
+  } else {
+    text.textContent = 'Dark Mode';
+    button.classList.remove('swapped');
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const button = document.getElementById('darkModeButton');
-    if (button) {
-        button.addEventListener('click', toggleH2AndPColor);
-    }
+  const button = document.getElementById('darkModeButton');
+  if (button) {
+    button.addEventListener('click', toggleH2AndPColor);
+  }
 });
